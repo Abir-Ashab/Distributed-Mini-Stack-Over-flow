@@ -11,8 +11,8 @@ const Alert = (props) => {
   const {id} = props;  
   const fetchPostCount = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/notification/count?userId=" + id);
-      console.log(response);
+      const response = await axios.get("http://localhost:5003/notification/count?userId=" + id);
+      // console.log("Notification: ", response);
       const postCount = response.data.count;
       setCount(postCount)
     } catch (error) {
@@ -28,7 +28,7 @@ const Alert = (props) => {
 
   const handleNotification = async() => {
     setNotification(!notification);
-    await axios.post("http://localhost:5000/notification/mark-as-seen", { userId: id });
+    await axios.post("http://localhost:5003/notification/mark-as-seen", { userId: id });
     navigate("/notification", { state: { id } });  
   };
 

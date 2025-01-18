@@ -5,6 +5,7 @@ import ShowPost from "../Posts/ShowPost";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
+  const [username, setusername] = useState("");
   const [isSigned, setSigned] = useState(false);
   const [password, setPassword] = useState("");
   const [userId, setuserId] = useState("");
@@ -13,9 +14,10 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/auth/Signup", {
+      const response = await axios.post("http://localhost:5001/auth/signup", {
         email,
         password,
+        username
       });
       setuserId(response.data.userId);
       setSigned(true);
@@ -29,6 +31,15 @@ const Signup = () => {
   return (
     <div data-theme="dim" className="relative mx-auto max-w-[525px] overflow-hidden rounded-lg px-10 py-16  text-center dark:bg-dark-2 sm:px-12 md:px-[60px]">
       <form onSubmit={handleSubmit}>
+      <div className="mb-4">
+          <input
+            type="username"
+            placeholder="Username"
+            className="input input-bordered input-info w-full max-w-xs"
+            value={username}
+            onChange={(e) => setusername(e.target.value)}
+          />
+        </div>
         <div className="mb-4">
           <input
             type="email"

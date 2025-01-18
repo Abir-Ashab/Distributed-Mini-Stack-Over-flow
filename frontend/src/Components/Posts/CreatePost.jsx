@@ -37,7 +37,7 @@ const CreatePost = (props) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/post", formData, {
+      const response = await axios.post("http://localhost:5002/post", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -60,7 +60,7 @@ const CreatePost = (props) => {
 
   return (
     <div>
-              <form data-theme="night" 
+          <form data-theme="night" 
           onSubmit={handleSubmit}
           className="ml-[30%] p-8 rounded-lg shadow-lg w-full max-w-md space-y-5"
         >

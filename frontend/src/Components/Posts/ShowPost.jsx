@@ -18,12 +18,31 @@ const ShowPost = () => {
     const fetchPosts = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/post", {
+        const response = await axios.get("http://localhost:5002/post", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        setPosts(response.data);
+
+        // Fetch user info for each post
+        const postsWithUsernames = await Promise.all(response.data.map(async (post) => {
+          try {
+            const userResponse = await axios.get(`http://localhost:5001/auth/${post.user._id}`, {
+              headers: { Authorization: `Bearer ${token}` },
+            });
+            // Attach the username to the post
+            post.username = userResponse.data.username; // Assuming 'username' is part of the response
+            return post;
+          } catch (error) {
+            console.error("Error fetching user data", error);
+            post.username = "Unknown User";
+            return post;
+          }
+        }));
+
+        setPosts(postsWithUsernames);
+        console.log(postsWithUsernames);
+
       } catch (error) {
         console.error("Error fetching posts", error);
       }
@@ -47,8 +66,8 @@ const ShowPost = () => {
   };
 
   return (
-    <div >
-      <Navbar ></Navbar>
+    <div>
+      <Navbar />
       <div data-theme="dark" className="min-h-screen p-8">
         <div className="flex mb-4 space-x-[80%]"> 
           <button onClick={handleCreatePost} className="bg-blue-500 text-white p-2 rounded">
@@ -57,41 +76,40 @@ const ShowPost = () => {
           <Alert id={id} flag={flag} />
         </div>
         {showCreatePost && <CreatePost userId={id} />}
-          {[...posts].reverse().map((post) => (
-              <div key={post._id} className="card mb-10 ml-[20%] bg-base-100 image-full w-96 shadow-xl">
-                <div className="card-body">
-                  {/* <h2 className="card-title">Description : </h2> */}
-                  <p className="text-gray-50">{post.description}</p>
-                  {post.code ? (
-                    <SyntaxHighlighter data-theme="light"
-                      language="javascript"
-                      style={vscDarkPlus}
-                      className="p-3 mt-2 rounded "
-                      customStyle={{
-                        width: "800px",   // Set your desired width
-                        height: "auto",  // Set your desired height
-                        overflowY: "auto", // Enable scrolling for long code blocks
-                        overflowX: "auto",
-                        // Ensuring it matches VS Code theme background
-                      }}
-                    >
-                      {post.code}
-                    </SyntaxHighlighter>
-
-                    )
-                    : (
-                    <div>
-                      <FetchAndDisplayFile fileUrl={post.fileUrl} />
-                    </div>
-                  )}
-                  <div className="card-actions justify-end">
-                    <button className="w-[25%] h-12 btn btn-primary">By: {post.user.email}</button>
-                  </div>
+        {[...posts].reverse().map((post) => (
+          <div key={post._id} className="card mb-10 ml-[20%] bg-base-100 image-full w-96 shadow-xl">
+            <div className="card-body">
+              <p className="text-gray-50">{post.description}</p>
+              {post.code ? (
+                <SyntaxHighlighter data-theme="light"
+                  language="javascript"
+                  style={vscDarkPlus}
+                  className="p-3 mt-2 rounded "
+                  customStyle={{
+                    width: "800px",   // Set your desired width
+                    height: "auto",  // Set your desired height
+                    overflowY: "auto", // Enable scrolling for long code blocks
+                    overflowX: "auto",
+                  }}
+                >
+                  {post.code}
+                </SyntaxHighlighter>
+              ) : (
+                <div>
+                  <FetchAndDisplayFile fileUrl={post.fileUrl} />
                 </div>
+              )}
+              <div className="card-actions justify-end">
+                <button className="w-[25%] h-12 btn btn-primary">
+                  By: {post.username ? post.username : "Unknown User"}
+                </button>
               </div>
-          ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
 export default ShowPost;

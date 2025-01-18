@@ -1,30 +1,19 @@
-# Frontend Dockerfile
-# Use a lightweight Node.js image for building
-FROM node:18-alpine as build
+# Frontend Dockerfile (./frontend/Dockerfile)
+FROM node:18-alpine
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package.json package-lock.json ./
+# Copy package files
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the app's source code
+# Copy rest of the application
 COPY . .
 
-# Build the frontend
-RUN npm run build
+# Expose Vite's default port
+EXPOSE 5173
 
-# Use a lightweight server to serve the built files
-FROM nginx:stable-alpine
-
-# Copy the built files to Nginx's default directory
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Run Vite dev server with host option to allow external access
+CMD ["npm", "run", "dev", "--", "--host"]

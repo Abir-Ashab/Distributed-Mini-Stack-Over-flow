@@ -1,0 +1,1005 @@
+post-service-1  |       _headerSent: true,
+post-service-1  |       _closed: false,
+post-service-1  |       socket: [Socket],
+post-service-1  |       _header: 'GET /auth/6780d893c57824cef5453195 HTTP/1.1\r\n' +
+post-service-1  |         'Accept: application/json, text/plain, */*\r\n' +
+post-service-1  |         'User-Agent: axios/1.7.9\r\n' +
+post-service-1  |         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+post-service-1  |         'Host: 127.0.0.1:5001\r\n' +
+post-service-1  |         'Connection: close\r\n' +
+post-service-1  |         '\r\n',
+post-service-1  |       _keepAliveTimeout: 0,
+post-service-1  |       _onPendingData: [Function: nop],
+post-service-1  |       agent: [Agent],
+post-service-1  |       socketPath: undefined,
+post-service-1  |       method: 'GET',
+post-service-1  |       maxHeaderSize: undefined,
+post-service-1  |       insecureHTTPParser: undefined,
+post-service-1  |       joinDuplicateHeaders: undefined,
+post-service-1  |       path: '/auth/6780d893c57824cef5453195',
+post-service-1  |       _ended: false,
+post-service-1  |       res: null,
+post-service-1  |       aborted: false,
+post-service-1  |       timeoutCb: null,
+post-service-1  |       upgradeOrConnect: false,
+post-service-1  |       parser: null,
+post-service-1  |       maxHeadersCount: null,
+post-service-1  |       reusedSocket: false,
+post-service-1  |       host: '127.0.0.1',
+post-service-1  |       protocol: 'http:',
+post-service-1  |       _redirectable: [Circular *1],
+post-service-1  |       [Symbol(kCapture)]: false,
+post-service-1  |       [Symbol(kBytesWritten)]: 0,
+post-service-1  |       [Symbol(kNeedDrain)]: false,
+post-service-1  |       [Symbol(corked)]: 0,
+post-service-1  |       [Symbol(kOutHeaders)]: [Object: null prototype],
+post-service-1  |       [Symbol(errored)]: null,
+post-service-1  |       [Symbol(kHighWaterMark)]: 16384,
+post-service-1  |       [Symbol(kRejectNonStandardBodyWrites)]: false,
+post-service-1  |       [Symbol(kUniqueHeaders)]: null
+post-service-1  |     },
+post-service-1  |     _currentUrl: 'http://127.0.0.1:5001/auth/6780d893c57824cef5453195',
+post-service-1  |     [Symbol(kCapture)]: false
+post-service-1  |   },
+post-service-1  |   cause: Error: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+post-service-1  |     errno: -111,
+post-service-1  |     code: 'ECONNREFUSED',
+post-service-1  |     syscall: 'connect',
+post-service-1  |     address: '127.0.0.1',
+post-service-1  |     port: 5001
+post-service-1  |   }
+post-service-1  | }
+post-service-1  | Error fetching user details: AxiosError: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |     at AxiosError.from (/usr/src/app/node_modules/axios/dist/node/axios.cjs:877:14)
+post-service-1  |     at RedirectableRequest.handleRequestError (/usr/src/app/node_modules/axios/dist/node/axios.cjs:3163:25)
+post-service-1  |     at RedirectableRequest.emit (node:events:517:28)
+post-service-1  |     at eventHandlers.<computed> (/usr/src/app/node_modules/follow-redirects/index.js:49:24)        
+post-service-1  |     at ClientRequest.emit (node:events:517:28)
+post-service-1  |     at Socket.socketErrorListener (node:_http_client:501:9)
+post-service-1  |     at Socket.emit (node:events:517:28)
+post-service-1  |     at emitErrorNT (node:internal/streams/destroy:151:8)
+post-service-1  |     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+post-service-1  |     at Axios.request (/usr/src/app/node_modules/axios/dist/node/axios.cjs:4252:41)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+post-service-1  |     at async PostSchema.methods.populateUser (/usr/src/app/models/Post.js:16:26)
+post-service-1  |     at async /usr/src/app/routes/post.js:92:22
+post-service-1  |     at async Promise.all (index 4) {
+post-service-1  |   port: 5001,
+post-service-1  |   address: '127.0.0.1',
+post-service-1  |   syscall: 'connect',
+post-service-1  |   code: 'ECONNREFUSED',
+post-service-1  |   errno: -111,
+post-service-1  |   config: {
+post-service-1  |     transitional: {
+post-service-1  |       silentJSONParsing: true,
+post-service-1  |       forcedJSONParsing: true,
+post-service-1  |       clarifyTimeoutError: false
+post-service-1  |     },
+post-service-1  |     adapter: [ 'xhr', 'http', 'fetch' ],
+post-service-1  |     transformRequest: [ [Function: transformRequest] ],
+post-service-1  |     transformResponse: [ [Function: transformResponse] ],
+post-service-1  |     timeout: 0,
+post-service-1  |     xsrfCookieName: 'XSRF-TOKEN',
+post-service-1  |     xsrfHeaderName: 'X-XSRF-TOKEN',
+post-service-1  |     maxContentLength: -1,
+post-service-1  |     maxBodyLength: -1,
+post-service-1  |     env: { FormData: [Function], Blob: [class Blob] },
+post-service-1  |     validateStatus: [Function: validateStatus],
+post-service-1  |     headers: Object [AxiosHeaders] {
+post-service-1  |       Accept: 'application/json, text/plain, */*',
+post-service-1  |       'Content-Type': undefined,
+post-service-1  |       'User-Agent': 'axios/1.7.9',
+post-service-1  |       'Accept-Encoding': 'gzip, compress, deflate, br'
+post-service-1  |     },
+post-service-1  |     method: 'get',
+post-service-1  |     url: 'http://127.0.0.1:5001/auth/678117a77b1e54c11a44a1e2',
+post-service-1  |     data: undefined
+post-service-1  |   },
+post-service-1  |   request: <ref *1> Writable {
+post-service-1  |     _writableState: WritableState {
+post-service-1  |       objectMode: false,
+post-service-1  |       highWaterMark: 16384,
+post-service-1  |       finalCalled: false,
+post-service-1  |       needDrain: false,
+post-service-1  |       ending: false,
+post-service-1  |       ended: false,
+post-service-1  |       finished: false,
+post-service-1  |       destroyed: false,
+post-service-1  |       decodeStrings: true,
+post-service-1  |       defaultEncoding: 'utf8',
+post-service-1  |       length: 0,
+post-service-1  |       writing: false,
+post-service-1  |       corked: 0,
+post-service-1  |       sync: true,
+post-service-1  |       bufferProcessing: false,
+post-service-1  |       onwrite: [Function: bound onwrite],
+post-service-1  |       writecb: null,
+post-service-1  |       writelen: 0,
+post-service-1  |       afterWriteTickInfo: null,
+post-service-1  |       buffered: [],
+post-service-1  |       bufferedIndex: 0,
+post-service-1  |       allBuffers: true,
+post-service-1  |       allNoop: true,
+post-service-1  |       pendingcb: 0,
+post-service-1  |       constructed: true,
+post-service-1  |       prefinished: false,
+post-service-1  |       errorEmitted: false,
+post-service-1  |       emitClose: true,
+post-service-1  |       autoDestroy: true,
+post-service-1  |       errored: null,
+post-service-1  |       closed: false,
+post-service-1  |       closeEmitted: false,
+post-service-1  |       [Symbol(kOnFinished)]: []
+post-service-1  |     },
+post-service-1  |     _events: [Object: null prototype] {
+post-service-1  |       response: [Function: handleResponse],
+post-service-1  |       error: [Function: handleRequestError],
+post-service-1  |       socket: [Function: handleRequestSocket]
+post-service-1  |     },
+post-service-1  |     _eventsCount: 3,
+post-service-1  |     _maxListeners: undefined,
+post-service-1  |     _options: {
+post-service-1  |       maxRedirects: 21,
+post-service-1  |       maxBodyLength: Infinity,
+post-service-1  |       protocol: 'http:',
+post-service-1  |       path: '/auth/678117a77b1e54c11a44a1e2',
+post-service-1  |       method: 'GET',
+post-service-1  |       headers: [Object: null prototype],
+post-service-1  |       agents: [Object],
+post-service-1  |       auth: undefined,
+post-service-1  |       family: undefined,
+post-service-1  |       beforeRedirect: [Function: dispatchBeforeRedirect],
+post-service-1  |       beforeRedirects: [Object],
+post-service-1  |       hostname: '127.0.0.1',
+post-service-1  |       port: '5001',
+post-service-1  |       agent: undefined,
+post-service-1  |       nativeProtocols: [Object],
+post-service-1  |       pathname: '/auth/678117a77b1e54c11a44a1e2'
+post-service-1  |     },
+post-service-1  |     _ended: true,
+post-service-1  |     _ending: true,
+post-service-1  |     _redirectCount: 0,
+post-service-1  |     _redirects: [],
+post-service-1  |     _requestBodyLength: 0,
+post-service-1  |     _requestBodyBuffers: [],
+post-service-1  |     _onNativeResponse: [Function (anonymous)],
+post-service-1  |     _currentRequest: ClientRequest {
+post-service-1  |       _events: [Object: null prototype],
+post-service-1  |       _eventsCount: 7,
+post-service-1  |       _maxListeners: undefined,
+post-service-1  |       outputData: [],
+post-service-1  |       outputSize: 0,
+post-service-1  |       writable: true,
+post-service-1  |       destroyed: false,
+post-service-1  |       _last: true,
+post-service-1  |       chunkedEncoding: false,
+post-service-1  |       shouldKeepAlive: false,
+post-service-1  |       maxRequestsOnConnectionReached: false,
+post-service-1  |       _defaultKeepAlive: true,
+post-service-1  |       useChunkedEncodingByDefault: false,
+post-service-1  |       sendDate: false,
+post-service-1  |       _removedConnection: false,
+post-service-1  |       _removedContLen: false,
+post-service-1  |       _removedTE: false,
+post-service-1  |       strictContentLength: false,
+post-service-1  |       _contentLength: 0,
+post-service-1  |       _hasBody: true,
+post-service-1  |       _trailer: '',
+post-service-1  |       finished: true,
+post-service-1  |       _headerSent: true,
+post-service-1  |       _closed: false,
+post-service-1  |       socket: [Socket],
+post-service-1  |       _header: 'GET /auth/678117a77b1e54c11a44a1e2 HTTP/1.1\r\n' +
+post-service-1  |         'Accept: application/json, text/plain, */*\r\n' +
+post-service-1  |         'User-Agent: axios/1.7.9\r\n' +
+post-service-1  |         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+post-service-1  |         'Host: 127.0.0.1:5001\r\n' +
+post-service-1  |         'Connection: close\r\n' +
+post-service-1  |         '\r\n',
+post-service-1  |       _keepAliveTimeout: 0,
+post-service-1  |       _onPendingData: [Function: nop],
+post-service-1  |       agent: [Agent],
+post-service-1  |       socketPath: undefined,
+post-service-1  |       method: 'GET',
+post-service-1  |       maxHeaderSize: undefined,
+post-service-1  |       insecureHTTPParser: undefined,
+post-service-1  |       joinDuplicateHeaders: undefined,
+post-service-1  |       path: '/auth/678117a77b1e54c11a44a1e2',
+post-service-1  |       _ended: false,
+post-service-1  |       res: null,
+post-service-1  |       aborted: false,
+post-service-1  |       timeoutCb: null,
+post-service-1  |       upgradeOrConnect: false,
+post-service-1  |       parser: null,
+post-service-1  |       maxHeadersCount: null,
+post-service-1  |       reusedSocket: false,
+post-service-1  |       host: '127.0.0.1',
+post-service-1  |       protocol: 'http:',
+post-service-1  |       _redirectable: [Circular *1],
+post-service-1  |       [Symbol(kCapture)]: false,
+post-service-1  |       [Symbol(kBytesWritten)]: 0,
+post-service-1  |       [Symbol(kNeedDrain)]: false,
+post-service-1  |       [Symbol(corked)]: 0,
+post-service-1  |       [Symbol(kOutHeaders)]: [Object: null prototype],
+post-service-1  |       [Symbol(errored)]: null,
+post-service-1  |       [Symbol(kHighWaterMark)]: 16384,
+post-service-1  |       [Symbol(kRejectNonStandardBodyWrites)]: false,
+post-service-1  |       [Symbol(kUniqueHeaders)]: null
+post-service-1  |     },
+post-service-1  |     _currentUrl: 'http://127.0.0.1:5001/auth/678117a77b1e54c11a44a1e2',
+post-service-1  |     [Symbol(kCapture)]: false
+post-service-1  |   },
+post-service-1  |   cause: Error: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+post-service-1  |     errno: -111,
+post-service-1  |     code: 'ECONNREFUSED',
+post-service-1  |     syscall: 'connect',
+post-service-1  |     address: '127.0.0.1',
+post-service-1  |     port: 5001
+post-service-1  |   }
+post-service-1  | }
+post-service-1  | Error fetching user details: AxiosError: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |     at AxiosError.from (/usr/src/app/node_modules/axios/dist/node/axios.cjs:877:14)
+post-service-1  |     at RedirectableRequest.handleRequestError (/usr/src/app/node_modules/axios/dist/node/axios.cjs:3163:25)
+post-service-1  |     at RedirectableRequest.emit (node:events:517:28)
+post-service-1  |     at eventHandlers.<computed> (/usr/src/app/node_modules/follow-redirects/index.js:49:24)        
+post-service-1  |     at ClientRequest.emit (node:events:517:28)
+post-service-1  |     at Socket.socketErrorListener (node:_http_client:501:9)
+post-service-1  |     at Socket.emit (node:events:517:28)
+post-service-1  |     at emitErrorNT (node:internal/streams/destroy:151:8)
+post-service-1  |     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+post-service-1  |     at Axios.request (/usr/src/app/node_modules/axios/dist/node/axios.cjs:4252:41)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+post-service-1  |     at async PostSchema.methods.populateUser (/usr/src/app/models/Post.js:16:26)
+post-service-1  |     at async /usr/src/app/routes/post.js:92:22
+post-service-1  |     at async Promise.all (index 5) {
+post-service-1  |   port: 5001,
+post-service-1  |   address: '127.0.0.1',
+post-service-1  |   syscall: 'connect',
+post-service-1  |   code: 'ECONNREFUSED',
+post-service-1  |   errno: -111,
+post-service-1  |   config: {
+post-service-1  |     transitional: {
+post-service-1  |       silentJSONParsing: true,
+post-service-1  |       forcedJSONParsing: true,
+post-service-1  |       clarifyTimeoutError: false
+post-service-1  |     },
+post-service-1  |     adapter: [ 'xhr', 'http', 'fetch' ],
+post-service-1  |     transformRequest: [ [Function: transformRequest] ],
+post-service-1  |     transformResponse: [ [Function: transformResponse] ],
+post-service-1  |     timeout: 0,
+post-service-1  |     xsrfCookieName: 'XSRF-TOKEN',
+post-service-1  |     xsrfHeaderName: 'X-XSRF-TOKEN',
+post-service-1  |     maxContentLength: -1,
+post-service-1  |     maxBodyLength: -1,
+post-service-1  |     env: { FormData: [Function], Blob: [class Blob] },
+post-service-1  |     validateStatus: [Function: validateStatus],
+post-service-1  |     headers: Object [AxiosHeaders] {
+post-service-1  |       Accept: 'application/json, text/plain, */*',
+post-service-1  |       'Content-Type': undefined,
+post-service-1  |       'User-Agent': 'axios/1.7.9',
+post-service-1  |       'Accept-Encoding': 'gzip, compress, deflate, br'
+post-service-1  |     },
+post-service-1  |     method: 'get',
+post-service-1  |     url: 'http://127.0.0.1:5001/auth/6780d763c57824cef5453191',
+post-service-1  |     data: undefined
+post-service-1  |   },
+post-service-1  |   request: <ref *1> Writable {
+post-service-1  |     _writableState: WritableState {
+post-service-1  |       objectMode: false,
+post-service-1  |       highWaterMark: 16384,
+post-service-1  |       finalCalled: false,
+post-service-1  |       needDrain: false,
+post-service-1  |       ending: false,
+post-service-1  |       ended: false,
+post-service-1  |       finished: false,
+post-service-1  |       destroyed: false,
+post-service-1  |       decodeStrings: true,
+post-service-1  |       defaultEncoding: 'utf8',
+post-service-1  |       length: 0,
+post-service-1  |       writing: false,
+post-service-1  |       corked: 0,
+post-service-1  |       sync: true,
+post-service-1  |       bufferProcessing: false,
+post-service-1  |       onwrite: [Function: bound onwrite],
+post-service-1  |       writecb: null,
+post-service-1  |       writelen: 0,
+post-service-1  |       afterWriteTickInfo: null,
+post-service-1  |       buffered: [],
+post-service-1  |       bufferedIndex: 0,
+post-service-1  |       allBuffers: true,
+post-service-1  |       allNoop: true,
+post-service-1  |       pendingcb: 0,
+post-service-1  |       constructed: true,
+post-service-1  |       prefinished: false,
+post-service-1  |       errorEmitted: false,
+post-service-1  |       emitClose: true,
+post-service-1  |       autoDestroy: true,
+post-service-1  |       errored: null,
+post-service-1  |       closed: false,
+post-service-1  |       closeEmitted: false,
+post-service-1  |       [Symbol(kOnFinished)]: []
+post-service-1  |     },
+post-service-1  |     _events: [Object: null prototype] {
+post-service-1  |       response: [Function: handleResponse],
+post-service-1  |       error: [Function: handleRequestError],
+post-service-1  |       socket: [Function: handleRequestSocket]
+post-service-1  |     },
+post-service-1  |     _eventsCount: 3,
+post-service-1  |     _maxListeners: undefined,
+post-service-1  |     _options: {
+post-service-1  |       maxRedirects: 21,
+post-service-1  |       maxBodyLength: Infinity,
+post-service-1  |       protocol: 'http:',
+post-service-1  |       path: '/auth/6780d763c57824cef5453191',
+post-service-1  |       method: 'GET',
+post-service-1  |       headers: [Object: null prototype],
+post-service-1  |       agents: [Object],
+post-service-1  |       auth: undefined,
+post-service-1  |       family: undefined,
+post-service-1  |       beforeRedirect: [Function: dispatchBeforeRedirect],
+post-service-1  |       beforeRedirects: [Object],
+post-service-1  |       hostname: '127.0.0.1',
+post-service-1  |       port: '5001',
+post-service-1  |       agent: undefined,
+post-service-1  |       nativeProtocols: [Object],
+post-service-1  |       pathname: '/auth/6780d763c57824cef5453191'
+post-service-1  |     },
+post-service-1  |     _ended: true,
+post-service-1  |     _ending: true,
+post-service-1  |     _redirectCount: 0,
+post-service-1  |     _redirects: [],
+post-service-1  |     _requestBodyLength: 0,
+post-service-1  |     _requestBodyBuffers: [],
+post-service-1  |     _onNativeResponse: [Function (anonymous)],
+post-service-1  |     _currentRequest: ClientRequest {
+post-service-1  |       _events: [Object: null prototype],
+post-service-1  |       _eventsCount: 7,
+post-service-1  |       _maxListeners: undefined,
+post-service-1  |       outputData: [],
+post-service-1  |       outputSize: 0,
+post-service-1  |       writable: true,
+post-service-1  |       destroyed: false,
+post-service-1  |       _last: true,
+post-service-1  |       chunkedEncoding: false,
+post-service-1  |       shouldKeepAlive: false,
+post-service-1  |       maxRequestsOnConnectionReached: false,
+post-service-1  |       _defaultKeepAlive: true,
+post-service-1  |       useChunkedEncodingByDefault: false,
+post-service-1  |       sendDate: false,
+post-service-1  |       _removedConnection: false,
+post-service-1  |       _removedContLen: false,
+post-service-1  |       _removedTE: false,
+post-service-1  |       strictContentLength: false,
+post-service-1  |       _contentLength: 0,
+post-service-1  |       _hasBody: true,
+post-service-1  |       _trailer: '',
+post-service-1  |       finished: true,
+post-service-1  |       _headerSent: true,
+post-service-1  |       _closed: false,
+post-service-1  |       socket: [Socket],
+post-service-1  |       _header: 'GET /auth/6780d763c57824cef5453191 HTTP/1.1\r\n' +
+post-service-1  |         'Accept: application/json, text/plain, */*\r\n' +
+post-service-1  |         'User-Agent: axios/1.7.9\r\n' +
+post-service-1  |         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+post-service-1  |         'Host: 127.0.0.1:5001\r\n' +
+post-service-1  |         'Connection: close\r\n' +
+post-service-1  |         '\r\n',
+post-service-1  |       _keepAliveTimeout: 0,
+post-service-1  |       _onPendingData: [Function: nop],
+post-service-1  |       agent: [Agent],
+post-service-1  |       socketPath: undefined,
+post-service-1  |       method: 'GET',
+post-service-1  |       maxHeaderSize: undefined,
+post-service-1  |       insecureHTTPParser: undefined,
+post-service-1  |       joinDuplicateHeaders: undefined,
+post-service-1  |       path: '/auth/6780d763c57824cef5453191',
+post-service-1  |       _ended: false,
+post-service-1  |       res: null,
+post-service-1  |       aborted: false,
+post-service-1  |       timeoutCb: null,
+post-service-1  |       upgradeOrConnect: false,
+post-service-1  |       parser: null,
+post-service-1  |       maxHeadersCount: null,
+post-service-1  |       reusedSocket: false,
+post-service-1  |       host: '127.0.0.1',
+post-service-1  |       protocol: 'http:',
+post-service-1  |       _redirectable: [Circular *1],
+post-service-1  |       [Symbol(kCapture)]: false,
+post-service-1  |       [Symbol(kBytesWritten)]: 0,
+post-service-1  |       [Symbol(kNeedDrain)]: false,
+post-service-1  |       [Symbol(corked)]: 0,
+post-service-1  |       [Symbol(kOutHeaders)]: [Object: null prototype],
+post-service-1  |       [Symbol(errored)]: null,
+post-service-1  |       [Symbol(kHighWaterMark)]: 16384,
+post-service-1  |       [Symbol(kRejectNonStandardBodyWrites)]: false,
+post-service-1  |       [Symbol(kUniqueHeaders)]: null
+post-service-1  |     },
+post-service-1  |     _currentUrl: 'http://127.0.0.1:5001/auth/6780d763c57824cef5453191',
+post-service-1  |     [Symbol(kCapture)]: false
+post-service-1  |   },
+post-service-1  |   cause: Error: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+post-service-1  |     errno: -111,
+post-service-1  |     code: 'ECONNREFUSED',
+post-service-1  |     syscall: 'connect',
+post-service-1  |     address: '127.0.0.1',
+post-service-1  |     port: 5001
+post-service-1  |   }
+post-service-1  | }
+post-service-1  | Error fetching user details: AxiosError: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |     at AxiosError.from (/usr/src/app/node_modules/axios/dist/node/axios.cjs:877:14)
+post-service-1  |     at RedirectableRequest.handleRequestError (/usr/src/app/node_modules/axios/dist/node/axios.cjs:3163:25)
+post-service-1  |     at RedirectableRequest.emit (node:events:517:28)
+post-service-1  |     at eventHandlers.<computed> (/usr/src/app/node_modules/follow-redirects/index.js:49:24)        
+post-service-1  |     at ClientRequest.emit (node:events:517:28)
+post-service-1  |     at Socket.socketErrorListener (node:_http_client:501:9)
+post-service-1  |     at Socket.emit (node:events:517:28)
+post-service-1  |     at emitErrorNT (node:internal/streams/destroy:151:8)
+post-service-1  |     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+post-service-1  |     at Axios.request (/usr/src/app/node_modules/axios/dist/node/axios.cjs:4252:41)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+post-service-1  |     at async PostSchema.methods.populateUser (/usr/src/app/models/Post.js:16:26)
+post-service-1  |     at async /usr/src/app/routes/post.js:92:22
+post-service-1  |     at async Promise.all (index 6) {
+post-service-1  |   port: 5001,
+post-service-1  |   address: '127.0.0.1',
+post-service-1  |   syscall: 'connect',
+post-service-1  |   code: 'ECONNREFUSED',
+post-service-1  |   errno: -111,
+post-service-1  |   config: {
+post-service-1  |     transitional: {
+post-service-1  |       silentJSONParsing: true,
+post-service-1  |       forcedJSONParsing: true,
+post-service-1  |       clarifyTimeoutError: false
+post-service-1  |     },
+post-service-1  |     adapter: [ 'xhr', 'http', 'fetch' ],
+post-service-1  |     transformRequest: [ [Function: transformRequest] ],
+post-service-1  |     transformResponse: [ [Function: transformResponse] ],
+post-service-1  |     timeout: 0,
+post-service-1  |     xsrfCookieName: 'XSRF-TOKEN',
+post-service-1  |     xsrfHeaderName: 'X-XSRF-TOKEN',
+post-service-1  |     maxContentLength: -1,
+post-service-1  |     maxBodyLength: -1,
+post-service-1  |     env: { FormData: [Function], Blob: [class Blob] },
+post-service-1  |     validateStatus: [Function: validateStatus],
+post-service-1  |     headers: Object [AxiosHeaders] {
+post-service-1  |       Accept: 'application/json, text/plain, */*',
+post-service-1  |       'Content-Type': undefined,
+post-service-1  |       'User-Agent': 'axios/1.7.9',
+post-service-1  |       'Accept-Encoding': 'gzip, compress, deflate, br'
+post-service-1  |     },
+post-service-1  |     method: 'get',
+post-service-1  |     url: 'http://127.0.0.1:5001/auth/6780d763c57824cef5453191',
+post-service-1  |     data: undefined
+post-service-1  |   },
+post-service-1  |   request: <ref *1> Writable {
+post-service-1  |     _writableState: WritableState {
+post-service-1  |       objectMode: false,
+post-service-1  |       highWaterMark: 16384,
+post-service-1  |       finalCalled: false,
+post-service-1  |       needDrain: false,
+post-service-1  |       ending: false,
+post-service-1  |       ended: false,
+post-service-1  |       finished: false,
+post-service-1  |       destroyed: false,
+post-service-1  |       decodeStrings: true,
+post-service-1  |       defaultEncoding: 'utf8',
+post-service-1  |       length: 0,
+post-service-1  |       writing: false,
+post-service-1  |       corked: 0,
+post-service-1  |       sync: true,
+post-service-1  |       bufferProcessing: false,
+post-service-1  |       onwrite: [Function: bound onwrite],
+post-service-1  |       writecb: null,
+post-service-1  |       writelen: 0,
+post-service-1  |       afterWriteTickInfo: null,
+post-service-1  |       buffered: [],
+post-service-1  |       bufferedIndex: 0,
+post-service-1  |       allBuffers: true,
+post-service-1  |       allNoop: true,
+post-service-1  |       pendingcb: 0,
+post-service-1  |       constructed: true,
+post-service-1  |       prefinished: false,
+post-service-1  |       errorEmitted: false,
+post-service-1  |       emitClose: true,
+post-service-1  |       autoDestroy: true,
+post-service-1  |       errored: null,
+post-service-1  |       closed: false,
+post-service-1  |       closeEmitted: false,
+post-service-1  |       [Symbol(kOnFinished)]: []
+post-service-1  |     },
+post-service-1  |     _events: [Object: null prototype] {
+post-service-1  |       response: [Function: handleResponse],
+post-service-1  |       error: [Function: handleRequestError],
+post-service-1  |       socket: [Function: handleRequestSocket]
+post-service-1  |     },
+post-service-1  |     _eventsCount: 3,
+post-service-1  |     _maxListeners: undefined,
+post-service-1  |     _options: {
+post-service-1  |       maxRedirects: 21,
+post-service-1  |       maxBodyLength: Infinity,
+post-service-1  |       protocol: 'http:',
+post-service-1  |       path: '/auth/6780d763c57824cef5453191',
+post-service-1  |       method: 'GET',
+post-service-1  |       headers: [Object: null prototype],
+post-service-1  |       agents: [Object],
+post-service-1  |       auth: undefined,
+post-service-1  |       family: undefined,
+post-service-1  |       beforeRedirect: [Function: dispatchBeforeRedirect],
+post-service-1  |       beforeRedirects: [Object],
+post-service-1  |       hostname: '127.0.0.1',
+post-service-1  |       port: '5001',
+post-service-1  |       agent: undefined,
+post-service-1  |       nativeProtocols: [Object],
+post-service-1  |       pathname: '/auth/6780d763c57824cef5453191'
+post-service-1  |     },
+post-service-1  |     _ended: true,
+post-service-1  |     _ending: true,
+post-service-1  |     _redirectCount: 0,
+post-service-1  |     _redirects: [],
+post-service-1  |     _requestBodyLength: 0,
+post-service-1  |     _requestBodyBuffers: [],
+post-service-1  |     _onNativeResponse: [Function (anonymous)],
+post-service-1  |     _currentRequest: ClientRequest {
+post-service-1  |       _events: [Object: null prototype],
+post-service-1  |       _eventsCount: 7,
+post-service-1  |       _maxListeners: undefined,
+post-service-1  |       outputData: [],
+post-service-1  |       outputSize: 0,
+post-service-1  |       writable: true,
+post-service-1  |       destroyed: false,
+post-service-1  |       _last: true,
+post-service-1  |       chunkedEncoding: false,
+post-service-1  |       shouldKeepAlive: false,
+post-service-1  |       maxRequestsOnConnectionReached: false,
+post-service-1  |       _defaultKeepAlive: true,
+post-service-1  |       useChunkedEncodingByDefault: false,
+post-service-1  |       sendDate: false,
+post-service-1  |       _removedConnection: false,
+post-service-1  |       _removedContLen: false,
+post-service-1  |       _removedTE: false,
+post-service-1  |       strictContentLength: false,
+post-service-1  |       _contentLength: 0,
+post-service-1  |       _hasBody: true,
+post-service-1  |       _trailer: '',
+post-service-1  |       finished: true,
+post-service-1  |       _headerSent: true,
+post-service-1  |       _closed: false,
+post-service-1  |       socket: [Socket],
+post-service-1  |       _header: 'GET /auth/6780d763c57824cef5453191 HTTP/1.1\r\n' +
+post-service-1  |         'Accept: application/json, text/plain, */*\r\n' +
+post-service-1  |         'User-Agent: axios/1.7.9\r\n' +
+post-service-1  |         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+post-service-1  |         'Host: 127.0.0.1:5001\r\n' +
+post-service-1  |         'Connection: close\r\n' +
+post-service-1  |         '\r\n',
+post-service-1  |       _keepAliveTimeout: 0,
+post-service-1  |       _onPendingData: [Function: nop],
+post-service-1  |       agent: [Agent],
+post-service-1  |       socketPath: undefined,
+post-service-1  |       method: 'GET',
+post-service-1  |       maxHeaderSize: undefined,
+post-service-1  |       insecureHTTPParser: undefined,
+post-service-1  |       joinDuplicateHeaders: undefined,
+post-service-1  |       path: '/auth/6780d763c57824cef5453191',
+post-service-1  |       _ended: false,
+post-service-1  |       res: null,
+post-service-1  |       aborted: false,
+post-service-1  |       timeoutCb: null,
+post-service-1  |       upgradeOrConnect: false,
+post-service-1  |       parser: null,
+post-service-1  |       maxHeadersCount: null,
+post-service-1  |       reusedSocket: false,
+post-service-1  |       host: '127.0.0.1',
+post-service-1  |       protocol: 'http:',
+post-service-1  |       _redirectable: [Circular *1],
+post-service-1  |       [Symbol(kCapture)]: false,
+post-service-1  |       [Symbol(kBytesWritten)]: 0,
+post-service-1  |       [Symbol(kNeedDrain)]: false,
+post-service-1  |       [Symbol(corked)]: 0,
+post-service-1  |       [Symbol(kOutHeaders)]: [Object: null prototype],
+post-service-1  |       [Symbol(errored)]: null,
+post-service-1  |       [Symbol(kHighWaterMark)]: 16384,
+post-service-1  |       [Symbol(kRejectNonStandardBodyWrites)]: false,
+post-service-1  |       [Symbol(kUniqueHeaders)]: null
+post-service-1  |     },
+post-service-1  |     _currentUrl: 'http://127.0.0.1:5001/auth/6780d763c57824cef5453191',
+post-service-1  |     [Symbol(kCapture)]: false
+post-service-1  |   },
+post-service-1  |   cause: Error: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+post-service-1  |     errno: -111,
+post-service-1  |     code: 'ECONNREFUSED',
+post-service-1  |     syscall: 'connect',
+post-service-1  |     address: '127.0.0.1',
+post-service-1  |     port: 5001
+post-service-1  |   }
+post-service-1  | }
+post-service-1  | Error fetching user details: AxiosError: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |     at AxiosError.from (/usr/src/app/node_modules/axios/dist/node/axios.cjs:877:14)
+post-service-1  |     at RedirectableRequest.handleRequestError (/usr/src/app/node_modules/axios/dist/node/axios.cjs:3163:25)
+post-service-1  |     at RedirectableRequest.emit (node:events:517:28)
+post-service-1  |     at eventHandlers.<computed> (/usr/src/app/node_modules/follow-redirects/index.js:49:24)        
+post-service-1  |     at ClientRequest.emit (node:events:517:28)
+post-service-1  |     at Socket.socketErrorListener (node:_http_client:501:9)
+post-service-1  |     at Socket.emit (node:events:517:28)
+post-service-1  |     at emitErrorNT (node:internal/streams/destroy:151:8)
+post-service-1  |     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+post-service-1  |     at Axios.request (/usr/src/app/node_modules/axios/dist/node/axios.cjs:4252:41)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+post-service-1  |     at async PostSchema.methods.populateUser (/usr/src/app/models/Post.js:16:26)
+post-service-1  |     at async /usr/src/app/routes/post.js:92:22
+post-service-1  |     at async Promise.all (index 7) {
+post-service-1  |   port: 5001,
+post-service-1  |   address: '127.0.0.1',
+post-service-1  |   syscall: 'connect',
+post-service-1  |   code: 'ECONNREFUSED',
+post-service-1  |   errno: -111,
+post-service-1  |   config: {
+post-service-1  |     transitional: {
+post-service-1  |       silentJSONParsing: true,
+post-service-1  |       forcedJSONParsing: true,
+post-service-1  |       clarifyTimeoutError: false
+post-service-1  |     },
+post-service-1  |     adapter: [ 'xhr', 'http', 'fetch' ],
+post-service-1  |     transformRequest: [ [Function: transformRequest] ],
+post-service-1  |     transformResponse: [ [Function: transformResponse] ],
+post-service-1  |     timeout: 0,
+post-service-1  |     xsrfCookieName: 'XSRF-TOKEN',
+post-service-1  |     xsrfHeaderName: 'X-XSRF-TOKEN',
+post-service-1  |     maxContentLength: -1,
+post-service-1  |     maxBodyLength: -1,
+post-service-1  |     env: { FormData: [Function], Blob: [class Blob] },
+post-service-1  |     validateStatus: [Function: validateStatus],
+post-service-1  |     headers: Object [AxiosHeaders] {
+post-service-1  |       Accept: 'application/json, text/plain, */*',
+post-service-1  |       'Content-Type': undefined,
+post-service-1  |       'User-Agent': 'axios/1.7.9',
+post-service-1  |       'Accept-Encoding': 'gzip, compress, deflate, br'
+post-service-1  |     },
+post-service-1  |     method: 'get',
+post-service-1  |     url: 'http://127.0.0.1:5001/auth/678814561bf088780a56af15',
+post-service-1  |     data: undefined
+post-service-1  |   },
+post-service-1  |   request: <ref *1> Writable {
+post-service-1  |     _writableState: WritableState {
+post-service-1  |       objectMode: false,
+post-service-1  |       highWaterMark: 16384,
+post-service-1  |       finalCalled: false,
+post-service-1  |       needDrain: false,
+post-service-1  |       ending: false,
+post-service-1  |       ended: false,
+post-service-1  |       finished: false,
+post-service-1  |       destroyed: false,
+post-service-1  |       decodeStrings: true,
+post-service-1  |       defaultEncoding: 'utf8',
+post-service-1  |       length: 0,
+post-service-1  |       writing: false,
+post-service-1  |       corked: 0,
+post-service-1  |       sync: true,
+post-service-1  |       bufferProcessing: false,
+post-service-1  |       onwrite: [Function: bound onwrite],
+post-service-1  |       writecb: null,
+post-service-1  |       writelen: 0,
+post-service-1  |       afterWriteTickInfo: null,
+post-service-1  |       buffered: [],
+post-service-1  |       bufferedIndex: 0,
+post-service-1  |       allBuffers: true,
+post-service-1  |       allNoop: true,
+post-service-1  |       pendingcb: 0,
+post-service-1  |       constructed: true,
+post-service-1  |       prefinished: false,
+post-service-1  |       errorEmitted: false,
+post-service-1  |       emitClose: true,
+post-service-1  |       autoDestroy: true,
+post-service-1  |       errored: null,
+post-service-1  |       closed: false,
+post-service-1  |       closeEmitted: false,
+post-service-1  |       [Symbol(kOnFinished)]: []
+post-service-1  |     },
+post-service-1  |     _events: [Object: null prototype] {
+post-service-1  |       response: [Function: handleResponse],
+post-service-1  |       error: [Function: handleRequestError],
+post-service-1  |       socket: [Function: handleRequestSocket]
+post-service-1  |     },
+post-service-1  |     _eventsCount: 3,
+post-service-1  |     _maxListeners: undefined,
+post-service-1  |     _options: {
+post-service-1  |       maxRedirects: 21,
+post-service-1  |       maxBodyLength: Infinity,
+post-service-1  |       protocol: 'http:',
+post-service-1  |       path: '/auth/678814561bf088780a56af15',
+post-service-1  |       method: 'GET',
+post-service-1  |       headers: [Object: null prototype],
+post-service-1  |       agents: [Object],
+post-service-1  |       auth: undefined,
+post-service-1  |       family: undefined,
+post-service-1  |       beforeRedirect: [Function: dispatchBeforeRedirect],
+post-service-1  |       beforeRedirects: [Object],
+post-service-1  |       hostname: '127.0.0.1',
+post-service-1  |       port: '5001',
+post-service-1  |       agent: undefined,
+post-service-1  |       nativeProtocols: [Object],
+post-service-1  |       pathname: '/auth/678814561bf088780a56af15'
+post-service-1  |     },
+post-service-1  |     _ended: true,
+post-service-1  |     _ending: true,
+post-service-1  |     _redirectCount: 0,
+post-service-1  |     _redirects: [],
+post-service-1  |     _requestBodyLength: 0,
+post-service-1  |     _requestBodyBuffers: [],
+post-service-1  |     _onNativeResponse: [Function (anonymous)],
+post-service-1  |     _currentRequest: ClientRequest {
+post-service-1  |       _events: [Object: null prototype],
+post-service-1  |       _eventsCount: 7,
+post-service-1  |       _maxListeners: undefined,
+post-service-1  |       outputData: [],
+post-service-1  |       outputSize: 0,
+post-service-1  |       writable: true,
+post-service-1  |       destroyed: false,
+post-service-1  |       _last: true,
+post-service-1  |       chunkedEncoding: false,
+post-service-1  |       shouldKeepAlive: false,
+post-service-1  |       maxRequestsOnConnectionReached: false,
+post-service-1  |       _defaultKeepAlive: true,
+post-service-1  |       useChunkedEncodingByDefault: false,
+post-service-1  |       sendDate: false,
+post-service-1  |       _removedConnection: false,
+post-service-1  |       _removedContLen: false,
+post-service-1  |       _removedTE: false,
+post-service-1  |       strictContentLength: false,
+post-service-1  |       _contentLength: 0,
+post-service-1  |       _hasBody: true,
+post-service-1  |       _trailer: '',
+post-service-1  |       finished: true,
+post-service-1  |       _headerSent: true,
+post-service-1  |       _closed: false,
+post-service-1  |       socket: [Socket],
+post-service-1  |       _header: 'GET /auth/678814561bf088780a56af15 HTTP/1.1\r\n' +
+post-service-1  |         'Accept: application/json, text/plain, */*\r\n' +
+post-service-1  |         'User-Agent: axios/1.7.9\r\n' +
+post-service-1  |         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+post-service-1  |         'Host: 127.0.0.1:5001\r\n' +
+post-service-1  |         'Connection: close\r\n' +
+post-service-1  |         '\r\n',
+post-service-1  |       _keepAliveTimeout: 0,
+post-service-1  |       _onPendingData: [Function: nop],
+post-service-1  |       agent: [Agent],
+post-service-1  |       socketPath: undefined,
+post-service-1  |       method: 'GET',
+post-service-1  |       maxHeaderSize: undefined,
+post-service-1  |       insecureHTTPParser: undefined,
+post-service-1  |       joinDuplicateHeaders: undefined,
+post-service-1  |       path: '/auth/678814561bf088780a56af15',
+post-service-1  |       _ended: false,
+post-service-1  |       res: null,
+post-service-1  |       aborted: false,
+post-service-1  |       timeoutCb: null,
+post-service-1  |       upgradeOrConnect: false,
+post-service-1  |       parser: null,
+post-service-1  |       maxHeadersCount: null,
+post-service-1  |       reusedSocket: false,
+post-service-1  |       host: '127.0.0.1',
+post-service-1  |       protocol: 'http:',
+post-service-1  |       _redirectable: [Circular *1],
+post-service-1  |       [Symbol(kCapture)]: false,
+post-service-1  |       [Symbol(kBytesWritten)]: 0,
+post-service-1  |       [Symbol(kNeedDrain)]: false,
+post-service-1  |       [Symbol(corked)]: 0,
+post-service-1  |       [Symbol(kOutHeaders)]: [Object: null prototype],
+post-service-1  |       [Symbol(errored)]: null,
+post-service-1  |       [Symbol(kHighWaterMark)]: 16384,
+post-service-1  |       [Symbol(kRejectNonStandardBodyWrites)]: false,
+post-service-1  |       [Symbol(kUniqueHeaders)]: null
+post-service-1  |     },
+post-service-1  |     _currentUrl: 'http://127.0.0.1:5001/auth/678814561bf088780a56af15',
+post-service-1  |     [Symbol(kCapture)]: false
+post-service-1  |   },
+post-service-1  |   cause: Error: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+post-service-1  |     errno: -111,
+post-service-1  |     code: 'ECONNREFUSED',
+post-service-1  |     syscall: 'connect',
+post-service-1  |     address: '127.0.0.1',
+post-service-1  |     port: 5001
+post-service-1  |   }
+post-service-1  | }
+post-service-1  | Error fetching user details: AxiosError: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |     at AxiosError.from (/usr/src/app/node_modules/axios/dist/node/axios.cjs:877:14)
+post-service-1  |     at RedirectableRequest.handleRequestError (/usr/src/app/node_modules/axios/dist/node/axios.cjs:3163:25)
+post-service-1  |     at RedirectableRequest.emit (node:events:517:28)
+post-service-1  |     at eventHandlers.<computed> (/usr/src/app/node_modules/follow-redirects/index.js:49:24)        
+post-service-1  |     at ClientRequest.emit (node:events:517:28)
+post-service-1  |     at Socket.socketErrorListener (node:_http_client:501:9)
+post-service-1  |     at Socket.emit (node:events:517:28)
+post-service-1  |     at emitErrorNT (node:internal/streams/destroy:151:8)
+post-service-1  |     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+post-service-1  |     at Axios.request (/usr/src/app/node_modules/axios/dist/node/axios.cjs:4252:41)
+post-service-1  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+post-service-1  |     at async PostSchema.methods.populateUser (/usr/src/app/models/Post.js:16:26)
+post-service-1  |     at async /usr/src/app/routes/post.js:92:22
+post-service-1  |     at async Promise.all (index 8) {
+post-service-1  |   port: 5001,
+post-service-1  |   address: '127.0.0.1',
+post-service-1  |   syscall: 'connect',
+post-service-1  |   code: 'ECONNREFUSED',
+post-service-1  |   errno: -111,
+post-service-1  |   config: {
+post-service-1  |     transitional: {
+post-service-1  |       silentJSONParsing: true,
+post-service-1  |       forcedJSONParsing: true,
+post-service-1  |       clarifyTimeoutError: false
+post-service-1  |     },
+post-service-1  |     adapter: [ 'xhr', 'http', 'fetch' ],
+post-service-1  |     transformRequest: [ [Function: transformRequest] ],
+post-service-1  |     transformResponse: [ [Function: transformResponse] ],
+post-service-1  |     timeout: 0,
+post-service-1  |     xsrfCookieName: 'XSRF-TOKEN',
+post-service-1  |     xsrfHeaderName: 'X-XSRF-TOKEN',
+post-service-1  |     maxContentLength: -1,
+post-service-1  |     maxBodyLength: -1,
+post-service-1  |     env: { FormData: [Function], Blob: [class Blob] },
+post-service-1  |     validateStatus: [Function: validateStatus],
+post-service-1  |     headers: Object [AxiosHeaders] {
+post-service-1  |       Accept: 'application/json, text/plain, */*',
+post-service-1  |       'Content-Type': undefined,
+post-service-1  |       'User-Agent': 'axios/1.7.9',
+post-service-1  |       'Accept-Encoding': 'gzip, compress, deflate, br'
+post-service-1  |     },
+post-service-1  |     method: 'get',
+post-service-1  |     url: 'http://127.0.0.1:5001/auth/678814561bf088780a56af15',
+post-service-1  |     data: undefined
+post-service-1  |   },
+post-service-1  |   request: <ref *1> Writable {
+post-service-1  |     _writableState: WritableState {
+post-service-1  |       objectMode: false,
+post-service-1  |       highWaterMark: 16384,
+post-service-1  |       finalCalled: false,
+post-service-1  |       needDrain: false,
+post-service-1  |       ending: false,
+post-service-1  |       ended: false,
+post-service-1  |       finished: false,
+post-service-1  |       destroyed: false,
+post-service-1  |       decodeStrings: true,
+post-service-1  |       defaultEncoding: 'utf8',
+post-service-1  |       length: 0,
+post-service-1  |       writing: false,
+post-service-1  |       corked: 0,
+post-service-1  |       sync: true,
+post-service-1  |       bufferProcessing: false,
+post-service-1  |       onwrite: [Function: bound onwrite],
+post-service-1  |       writecb: null,
+post-service-1  |       writelen: 0,
+post-service-1  |       afterWriteTickInfo: null,
+post-service-1  |       buffered: [],
+post-service-1  |       bufferedIndex: 0,
+post-service-1  |       allBuffers: true,
+post-service-1  |       allNoop: true,
+post-service-1  |       pendingcb: 0,
+post-service-1  |       constructed: true,
+post-service-1  |       prefinished: false,
+post-service-1  |       errorEmitted: false,
+post-service-1  |       emitClose: true,
+post-service-1  |       autoDestroy: true,
+post-service-1  |       errored: null,
+post-service-1  |       closed: false,
+post-service-1  |       closeEmitted: false,
+post-service-1  |       [Symbol(kOnFinished)]: []
+post-service-1  |     },
+post-service-1  |     _events: [Object: null prototype] {
+post-service-1  |       response: [Function: handleResponse],
+post-service-1  |       error: [Function: handleRequestError],
+post-service-1  |       socket: [Function: handleRequestSocket]
+post-service-1  |     },
+post-service-1  |     _eventsCount: 3,
+post-service-1  |     _maxListeners: undefined,
+post-service-1  |     _options: {
+post-service-1  |       maxRedirects: 21,
+post-service-1  |       maxBodyLength: Infinity,
+post-service-1  |       protocol: 'http:',
+post-service-1  |       path: '/auth/678814561bf088780a56af15',
+post-service-1  |       method: 'GET',
+post-service-1  |       headers: [Object: null prototype],
+post-service-1  |       agents: [Object],
+post-service-1  |       auth: undefined,
+post-service-1  |       family: undefined,
+post-service-1  |       beforeRedirect: [Function: dispatchBeforeRedirect],
+post-service-1  |       beforeRedirects: [Object],
+post-service-1  |       hostname: '127.0.0.1',
+post-service-1  |       port: '5001',
+post-service-1  |       agent: undefined,
+post-service-1  |       nativeProtocols: [Object],
+post-service-1  |       pathname: '/auth/678814561bf088780a56af15'
+post-service-1  |     },
+post-service-1  |     _ended: true,
+post-service-1  |     _ending: true,
+post-service-1  |     _redirectCount: 0,
+post-service-1  |     _redirects: [],
+post-service-1  |     _requestBodyLength: 0,
+post-service-1  |     _requestBodyBuffers: [],
+post-service-1  |     _onNativeResponse: [Function (anonymous)],
+post-service-1  |     _currentRequest: ClientRequest {
+post-service-1  |       _events: [Object: null prototype],
+post-service-1  |       _eventsCount: 7,
+post-service-1  |       _maxListeners: undefined,
+post-service-1  |       outputData: [],
+post-service-1  |       outputSize: 0,
+post-service-1  |       writable: true,
+post-service-1  |       destroyed: false,
+post-service-1  |       _last: true,
+post-service-1  |       chunkedEncoding: false,
+post-service-1  |       shouldKeepAlive: false,
+post-service-1  |       maxRequestsOnConnectionReached: false,
+post-service-1  |       _defaultKeepAlive: true,
+post-service-1  |       useChunkedEncodingByDefault: false,
+post-service-1  |       sendDate: false,
+post-service-1  |       _removedConnection: false,
+post-service-1  |       _removedContLen: false,
+post-service-1  |       _removedTE: false,
+post-service-1  |       strictContentLength: false,
+post-service-1  |       _contentLength: 0,
+post-service-1  |       _hasBody: true,
+post-service-1  |       _trailer: '',
+post-service-1  |       finished: true,
+post-service-1  |       _headerSent: true,
+post-service-1  |       _closed: false,
+post-service-1  |       socket: [Socket],
+post-service-1  |       _header: 'GET /auth/678814561bf088780a56af15 HTTP/1.1\r\n' +
+post-service-1  |         'Accept: application/json, text/plain, */*\r\n' +
+post-service-1  |         'User-Agent: axios/1.7.9\r\n' +
+post-service-1  |         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+post-service-1  |         'Host: 127.0.0.1:5001\r\n' +
+post-service-1  |         'Connection: close\r\n' +
+post-service-1  |         '\r\n',
+post-service-1  |       _keepAliveTimeout: 0,
+post-service-1  |       _onPendingData: [Function: nop],
+post-service-1  |       agent: [Agent],
+post-service-1  |       socketPath: undefined,
+post-service-1  |       method: 'GET',
+post-service-1  |       maxHeaderSize: undefined,
+post-service-1  |       insecureHTTPParser: undefined,
+post-service-1  |       joinDuplicateHeaders: undefined,
+post-service-1  |       path: '/auth/678814561bf088780a56af15',
+post-service-1  |       _ended: false,
+post-service-1  |       res: null,
+post-service-1  |       aborted: false,
+post-service-1  |       timeoutCb: null,
+post-service-1  |       upgradeOrConnect: false,
+post-service-1  |       parser: null,
+post-service-1  |       maxHeadersCount: null,
+post-service-1  |       reusedSocket: false,
+post-service-1  |       host: '127.0.0.1',
+post-service-1  |       protocol: 'http:',
+post-service-1  |       _redirectable: [Circular *1],
+post-service-1  |       [Symbol(kCapture)]: false,
+post-service-1  |       [Symbol(kBytesWritten)]: 0,
+post-service-1  |       [Symbol(kNeedDrain)]: false,
+post-service-1  |       [Symbol(corked)]: 0,
+post-service-1  |       [Symbol(kOutHeaders)]: [Object: null prototype],
+post-service-1  |       [Symbol(errored)]: null,
+post-service-1  |       [Symbol(kHighWaterMark)]: 16384,
+post-service-1  |       [Symbol(kRejectNonStandardBodyWrites)]: false,
+post-service-1  |       [Symbol(kUniqueHeaders)]: null
+post-service-1  |     },
+post-service-1  |     _currentUrl: 'http://127.0.0.1:5001/auth/678814561bf088780a56af15',
+post-service-1  |     [Symbol(kCapture)]: false
+post-service-1  |   },
+post-service-1  |   cause: Error: connect ECONNREFUSED 127.0.0.1:5001
+post-service-1  |       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+post-service-1  |     errno: -111,
+post-service-1  |     code: 'ECONNREFUSED',
+post-service-1  |     syscall: 'connect',
+post-service-1  |     address: '127.0.0.1',
+post-service-1  |     port: 5001
+post-service-1  |   }
+post-service-1  | }
+
+
+v View in Docker Desktop   o View Config   w Enable Watch

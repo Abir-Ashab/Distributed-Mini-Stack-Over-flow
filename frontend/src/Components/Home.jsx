@@ -20,7 +20,7 @@ const Home = () => {
               onChange={() => setSignup(!signup)}
             />
             <span className="text-sm text-indigo-200">
-              {signup ? "Already have an account?" : "Don't have an account?"}
+              {signup ? null : "Don't have an account?"}
             </span>
           </label>
         </div>
