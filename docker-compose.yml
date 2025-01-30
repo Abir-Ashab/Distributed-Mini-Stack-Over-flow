@@ -1,12 +1,27 @@
 services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   auth:
     build: ./authentication-service
     ports:
       - "5001:5001"
     environment:
       - PORT=5001
-      - MONGO_URI=mongodb+srv://niloy:29303128@stack-over-flow.pbwd2.mongodb.net/authDB?retryWrites=true&w=majority&appName=auth-service
+      - MONGO_URI=mongodb://mongodb:27017/auth-service
       - JWT_SECRET=niloy1315
+    depends_on:
+      mongodb:
+        condition: service_healthy
 
   post:
     build: ./post-service
@@ -14,16 +29,23 @@ services:
       - "5002:5002"
     environment:
       - PORT=5002
-      - MONGO_URI=mongodb+srv://niloy:29303128@stack-over-flow.pbwd2.mongodb.net/postDB?retryWrites=true&w=majority&appName=post-service
+      - MONGO_URI=mongodb://mongodb:27017/post-service
       - MINIO_ROOT_USER=minioadmin
       - MINIO_ROOT_PASSWORD=minioadmin
       - MINIO_ENDPOINT=minio
       - MINIO_PORT=9000
       - MINIO_BUCKET=code-storage
     depends_on:
-      - minio
-      - notification
-      - auth
+      mongodb:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      createbuckets:
+        condition: service_completed_successfully
+      notification:
+        condition: service_started
+      auth:
+        condition: service_started
 
   notification:
     build: ./notification-service
@@ -31,9 +53,12 @@ services:
       - "5003:5003"
     environment:
       - PORT=5003
-      - MONGO_URI=mongodb+srv://niloy:29303128@stack-over-flow.pbwd2.mongodb.net/notificationDB?retryWrites=true&w=majority&appName=notification-service
+      - MONGO_URI=mongodb://mongodb:27017/notification-service
     depends_on:
-      - auth
+      mongodb:
+        condition: service_healthy
+      auth:
+        condition: service_started
 
   frontend:
     build: ./frontend
@@ -57,14 +82,30 @@ services:
     environment:
       - MINIO_ROOT_USER=minioadmin
       - MINIO_ROOT_PASSWORD=minioadmin
+      - MINIO_REGION=us-east-1
     command: server /data --console-address ":9001"
     volumes:
-      - ./minio-data:/data
+      - minio_data:/data
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-      interval: 10s
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
       timeout: 5s
       retries: 5
 
+  createbuckets:
+    image: minio/mc
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      sleep 5;
+      mc config host add myminio http://minio:9000 minioadmin minioadmin;
+      mc mb --ignore-existing myminio/code-storage;
+      mc anonymous set download myminio/code-storage;
+      exit 0;
+      "
+
 volumes:
+  mongodb_data:
   minio_data:

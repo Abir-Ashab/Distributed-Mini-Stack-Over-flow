@@ -8,6 +8,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism"; //
 import FetchAndDisplayFile from "./FetchAndDisplayFile";
 import Navbar from "../Navbar";
 
+
 const ShowPost = () => {
   const [posts, setPosts] = useState([]);
   const [showCreatePost, setShowCreatePost] = useState(false);
@@ -61,7 +62,7 @@ const ShowPost = () => {
       return response.data; 
     } catch (error) {
       console.error("Error fetching file content:", error);
-      return "";
+      return ""; 
     }
   };
 
@@ -96,6 +97,7 @@ const ShowPost = () => {
                 </SyntaxHighlighter>
               ) : (
                 <div>
+                  <a href="">{post.fileUrl}</a>
                   <FetchAndDisplayFile fileUrl={post.fileUrl} />
                 </div>
               )}

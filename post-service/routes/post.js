@@ -11,23 +11,38 @@ const minioClient = new Minio.Client({
   port: parseInt(process.env.MINIO_PORT),
   useSSL: false,
   accessKey: process.env.MINIO_ROOT_USER,
-  secretKey: process.env.MINIO_ROOT_PASSWORD,
-  region: 'us-east-1',  // Add this line to specify the region
+  secretKey: process.env.MINIO_ROOT_PASSWORD
 });
 
-minioClient.bucketExists(process.env.MINIO_BUCKET, (err) => {
-  if (err) {
-      console.log(`Bucket ${process.env.MINIO_BUCKET} doesn't exist. Creating it...`);
-      minioClient.makeBucket(process.env.MINIO_BUCKET, '', (err) => {
-          if (err) console.log('Error creating bucket:', err);
-          else console.log(`Bucket ${process.env.MINIO_BUCKET} created successfully`);
-      });
-  } else {
+async function initializeMinioBucket() {
+  try {
+    const bucketExists = await minioClient.bucketExists(process.env.MINIO_BUCKET);
+    if (!bucketExists) {
+      await minioClient.makeBucket(process.env.MINIO_BUCKET);
+      console.log(`Bucket ${process.env.MINIO_BUCKET} created successfully`);
+    } else {
       console.log('Bucket already exists');
-      console.log("Bucket name being used:", process.env.MINIO_BUCKET);
+    }
+    // Set bucket policy to public
+    const policy = {
+      Version: '2012-10-17',
+      Statement: [
+        {
+          Effect: 'Allow',
+          Principal: { AWS: ['*'] },
+          Action: ['s3:GetBucketLocation', 's3:ListBucket', 's3:GetObject'],
+          Resource: [`arn:aws:s3:::${process.env.MINIO_BUCKET}`, `arn:aws:s3:::${process.env.MINIO_BUCKET}/*`]
+        }
+      ]
+    };
+    await minioClient.setBucketPolicy(process.env.MINIO_BUCKET, JSON.stringify(policy));
+    console.log('Bucket policy set to public');
+  } catch (err) {
+    console.error('Error initializing MinIO bucket:', err);
+    throw err;
   }
-});
-
+}
+initializeMinioBucket();
 
 
 const storage = multer.memoryStorage();
@@ -72,7 +87,7 @@ router.post("/", upload.single('file'), async (req, res) => {
       };
 
       try {
-          await axios.post('http://localhost:5003/notification', notificationData);
+          await axios.post('http://notification:5003/notification', notificationData);
           console.log('Notification sent successfully');
       } catch (error) {
           console.error('Failed to send notification:', error);
@@ -87,7 +102,6 @@ router.post("/", upload.single('file'), async (req, res) => {
       res.status(500).json({ message: "Failed to create post" });
   }
 });
-
 
 router.get("/", async (req, res) => {
   const { userId } = req.query; // Exclude posts by this user
