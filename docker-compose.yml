@@ -1,10 +1,34 @@
 services:
-  mongodb:
+  mongodb-auth:
     image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
-      - mongodb_data:/data/db
+      - mongodb_auth_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mongodb-post:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_post_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mongodb-notification:
+    image: mongo:latest
+    ports:
+      - "27019:27017"
+    volumes:
+      - mongodb_notification_data:/data/db
     healthcheck:
       test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
       interval: 10s
@@ -17,10 +41,10 @@ services:
       - "5001:5001"
     environment:
       - PORT=5001
-      - MONGO_URI=mongodb://mongodb:27017/auth-service
+      - MONGO_URI=mongodb://mongodb-auth:27017/auth-service
       - JWT_SECRET=niloy1315
     depends_on:
-      mongodb:
+      mongodb-auth:
         condition: service_healthy
 
   post:
@@ -29,14 +53,14 @@ services:
       - "5002:5002"
     environment:
       - PORT=5002
-      - MONGO_URI=mongodb://mongodb:27017/post-service
+      - MONGO_URI=mongodb://mongodb-post:27017/post-service
       - MINIO_ROOT_USER=minioadmin
       - MINIO_ROOT_PASSWORD=minioadmin
       - MINIO_ENDPOINT=minio
       - MINIO_PORT=9000
       - MINIO_BUCKET=code-storage
     depends_on:
-      mongodb:
+      mongodb-post:
         condition: service_healthy
       minio:
         condition: service_healthy
@@ -53,26 +77,12 @@ services:
       - "5003:5003"
     environment:
       - PORT=5003
-      - MONGO_URI=mongodb://mongodb:27017/notification-service
+      - MONGO_URI=mongodb://mongodb-notification:27017/notification-service
     depends_on:
-      mongodb:
+      mongodb-notification:
         condition: service_healthy
       auth:
         condition: service_started
-
-  frontend:
-    build: ./frontend
-    ports:
-      - "5173:5173"
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-    depends_on:
-      - auth
-      - post
-      - notification
 
   minio:
     image: minio/minio:latest
@@ -105,7 +115,8 @@ services:
       mc anonymous set download myminio/code-storage;
       exit 0;
       "
-
 volumes:
-  mongodb_data:
+  mongodb_auth_data:
+  mongodb_post_data:
+  mongodb_notification_data:
   minio_data:
